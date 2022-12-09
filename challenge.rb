@@ -9,7 +9,24 @@
 
 def sockMerchant(n, ar)
   # Write your code here
+  harshed = Hash.new
+  ar.each do |value|
+    harshed[value] = [value]
+  end
 
+
+  harshed.each do |k, v|
+    ar.each do |value|
+      v << value if value == k
+    end
+  end
+
+  result = 0
+  harshed.each do |k, v|
+    v.pop if v.length > 1
+    result = result + (v.length) / 2
+  end
+  result
 end
 
 
